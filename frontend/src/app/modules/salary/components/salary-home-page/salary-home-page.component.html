@@ -1,0 +1,23 @@
+<div class="background">
+  <h1 class="H1">Liste des Salaires</h1>
+  <br><br>
+  <ng-container *ngIf="list$ | async as list">
+    <table class="table">
+      <caption>Infos Salaires cliquez pour modifier </caption>
+      <tr class="header">
+        <td class="t1"> Titre </td>
+        <td class="t1"> Montant </td>
+        <td class="t1"> Commentaire </td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let item of list" >
+        <td (click)="detail(item.id)"> {{item.title}}</td>
+        <td (click)="detail(item.id)">{{item.amount}}</td>
+        <td (click)="detail(item.id)">{{item.comment}}</td>
+        <td (click)="delete(item.id)"><img alt="delete" class="delete" src="./photo/delete.png"></td>
+      </tr>
+    </table>
+  </ng-container>
+  <br><br><br>
+  <button class="ajouter" (click)="create()">Ajouter</button>
+</div>
